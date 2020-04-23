@@ -33,6 +33,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>${project.artifactId}</finalName>
 		<plugins>
 			<plugin>
 				<artifactId>maven-ear-plugin</artifactId>
@@ -41,14 +42,16 @@
 					<version>8</version>
 					<finalName>${project.artifactId}</finalName>
 					<outputFileNameMapping>@{artifactId}@.@{extension}@</outputFileNameMapping>
-					<module>
-						<groupId>de.fk.wlp</groupId>
-						<artifactId>ear-web-bnd-web1</artifactId>
-					</module>
-					<module>
-						<groupId>de.fk.wlp</groupId>
-						<artifactId>ear-web-bnd-web2</artifactId>
-					</module>
+					<modules>
+						<webModule>
+							<groupId>de.fk.wlp</groupId>
+							<artifactId>ear-web-bnd-web1</artifactId>
+						</webModule>
+						<webModule>
+							<groupId>de.fk.wlp</groupId>
+							<artifactId>ear-web-bnd-web2</artifactId>
+						</webModule>
+					</modules>
 				</configuration>
 			</plugin>
 		</plugins>
